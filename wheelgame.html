@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	    <title>游戏(canvas)</title>
+	    <link rel="stylesheet" type="text/css" href="css/wheelgame.css"/>
+	    <script type="text/javascript">
+			var phoneWidth = parseInt(window.screen.width);
+			var phoneScale = phoneWidth/750;
+			var ua = navigator.userAgent;
+			if (/Android (\d+\.\d+)/.test(ua)){
+			var version = parseFloat(RegExp.$1);
+				// andriod 2.3
+				if(version>2.3){
+					document.write('<meta name="viewport" content="width=750, minimum-scale = '+phoneScale+', maximum-scale = '+phoneScale+', target-densitydpi=device-dpi">');
+					// andriod 2.3以上
+				}else{
+					document.write('<meta name="viewport" content="width=750, target-densitydpi=device-dpi">');
+				}
+				// 其他系统
+			} else {
+				document.write('<meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi,minimal-ui">');
+			}
+		</script>
+		<style type="text/css">
+			*{padding:0; margin:0;}
+			html,body{width:100%; height:100%;}
+			#myCanvas{background-color: rgb(28,27,32);}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<canvas id="myCanvas" ></canvas>
+			<div class="game-score">
+				<p>最高得分:<span class="game-score-maxNum">0</span></p>
+				<p>当前得分:<span class="game-score-num">0</span></p>
+				<a class="toRankList" href="#rankList">排行榜</a>
+			</div>
+		</div>
+		<div class="game-modal" ontouchstart="javascript:void(event.stopPropagation())">
+			<div class="game-confirm">
+				<div class="game-confirm-txt">Game over !</div>
+				<div class="game-confirm-score">得分：<span class="game-score-num">0</span></div>
+				<div class="game-btn game-again" ontouchstart="Confirm.again()">再来一次</div>
+			</div>
+		</div>
+		<div class="passStage">
+			<p>恭喜通过本关，进入第<span class="stage-num"></span>关</p>
+		</div>
+	</body>
+	<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/gameLevel.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/wheelgame.js" type="text/javascript" charset="utf-8"></script>
+</html>

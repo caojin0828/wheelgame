@@ -1,0 +1,111 @@
+@charset "utf-8";
+*{
+	padding:0;
+	margin:0;
+}
+a{
+	text-decoration: none;
+}
+html,body{
+	width:100%;
+	height:100%;
+	overflow: hidden;
+ 	-webkit-user-select:none;
+ 	-moz-user-select:none;
+ 	-ms-user-select:none;
+ 	user-select:none;
+ 	font-family: "微软雅黑";
+}
+.container{
+ 	width:100%;
+	height:100%;
+}
+#myCanvas{
+	background-color: rgb(28,27,32);
+}
+
+.game-score{
+	display: block;
+	font-size: 28px;
+	line-height: 40px;
+	text-align: right;
+	color:#f00;
+	position: fixed;
+	right:20px;
+	top:30px;
+	z-index: 99;
+}
+.game-score a{
+	color:#fff;
+}
+
+/*提示框*/
+.game-modal{
+	width:100%;
+	height:100%;
+	position: fixed;
+	top:0;
+	left:0;
+	background-color: rgba(0,0,0,0.5);
+	display: none;
+	z-index: 998;
+}
+.game-confirm{
+	width:500px;
+	/*height:2.6rem;*/
+	background-color: #f1f1f1;
+	border-radius: 10px;
+	position:absolute;
+	left:50%;
+	top:40%;
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	z-index: 999;
+}
+.game-confirm .game-confirm-txt{
+	padding-top: 30px;
+	font-size: 50px;
+	text-align: center;
+	line-height: 100px;
+}
+.game-confirm .game-confirm-score{
+	padding-bottom: 30px;
+	font-size: 40px;
+	text-align: center;
+	line-height: 50px;
+	color:#F64D4D;
+}
+.game-confirm .game-btn{
+	width:100%;
+	border-top:1px solid #999;
+	font-size: 36px;
+	text-align: center;
+	line-height: 100px;
+}
+/*通过*/
+.passStage{
+	width:100%;
+	position: fixed;
+	top:50%;
+	left:50%;
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+	font-size: 40px;
+	text-align: center;
+	color:#fff;
+	-webkit-animation: passStage 3s forwards;
+	animation: passStage 3s forwards;
+	display:none;
+}
+-webkit-@keyframes passStage{
+	0%{top:45%;opacity: 0;}
+	20%{top:50%;opacity: 1;}
+	80%{top:50%;opacity: 1;}
+	100%{top:45%;opacity: 0;}
+}
+@keyframes passStage{
+	0%{top:45%;opacity: 0;}
+	20%{top:50%;opacity: 1;}
+	80%{top:50%;opacity: 1;}
+	100%{top:45%;opacity: 0;}
+}
